@@ -1,5 +1,5 @@
 html,body{
-    margin:0;
+    margin:0%;
     height:100%;
     width:100%;
     background-color: #FFFFFF;
@@ -7,15 +7,23 @@ html,body{
 .header
 {
     height:10%;
-    background-color: rgb(189, 100, 100);
+    background-color: #D9D9D9;
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
+    padding:0%;
+    margin:0%;
+    border-bottom-style: solid;
+    border-width:1px;
 }
 .searchbar{
-    display:inline-block;
     box-sizing: border-box;
-    margin:0;
-    width:90%;
+    width:70%;
+    height:70%;
+}
+.search{
+    box-sizing: border;
+    height:70%;
+    width:5%
 }
