@@ -1,0 +1,21 @@
+html,body{
+    margin:0;
+    height:100%;
+    width:100%;
+    background-color: #FFFFFF;
+}
+.header
+{
+    height:10%;
+    background-color: rgb(189, 100, 100);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.searchbar{
+    display:inline-block;
+    box-sizing: border-box;
+    margin:0;
+    width:90%;
+}
