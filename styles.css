@@ -7,6 +7,7 @@ html,body{
 .header
 {
     height:10%;
+    width:100%;
     background-color: #D9D9D9;
     display: flex;
     align-items: center;
@@ -15,9 +16,6 @@ html,body{
     padding:0%;
     margin:0%;
     border-bottom-style: solid;
-    border-color: #B4B4B4;
-    border-width:1px;
-    position:sticky;
 }
 .searchbar{
     box-sizing: border-box;
@@ -30,10 +28,45 @@ html,body{
     width:5%
 }
 .navbar{
-    background-color: #D9D9D9;
+    background-color: #D9D9D9;  
     width:10%;
-    height:100%;
+    height:90%;
     border-right-style: solid;
     border-color:#B4B4B4;
     border-width: 1px;
+    float:left;
+    box-sizing: border-box;
+}
+.navitem{
+    height:10%;
+    text-align: center;
+    border-bottom-style: solid;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+.borderstyle
+{
+    border-color: #B4B4B4;
+    border-width:1px;
+}
+.card-table{
+    height:90%;
+    background-color: #FFFFFF;
+    width:90%;
+    float:right;
+    overflow-y:auto;
+    max-width:auto;
+}
+.tablerow
+{
+    display: flex;
+    flex-direction: row;
+    height:10%;
+    border-bottom-style: solid;
+}
+.tableheader
+{
+    height:100%;
+    border-right-style: solid;
 }
