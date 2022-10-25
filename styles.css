@@ -63,29 +63,32 @@ html,body{
 {
     display: flex;
     flex-direction: row;
-    height:10%;
+    /*height:5%;*/
     border-bottom-style: solid;
 }
 .tableheader
 {
     display:flex;
-    height:100%;
+    /*height:100%;*/
     border-right-style: solid;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
     text-align:center;
+    padding-top:2%;
+    padding-bottom:2%
 }
 .tablecontent
 {
-    display:flex;
-    height:100%;
+    
+    /*height:100%;*/
     border-right-style: solid;
+    display:flex;
     align-items: center;
     justify-content: center;
     overflow-x:auto;
-    flex-wrap:nowrap;
     text-align:center;
+    padding-top:1%;
+    padding-bottom:1%
 }
 .name{
     width:30%;
@@ -93,19 +96,30 @@ html,body{
 }
 .atribute{
     width:10%;
+    min-width:60px;
 }
 .level{
-    width:10%;
+    width:5%;
+    min-width:60px;
 }
 .type{
     width:10%;
+    min-width:60px;
 }
 .atk{
     width:10%;
+    min-width:60px;
 }
 .count{
     width:10%;
+    min-width:60px;
 }
 .notes{
-    width:10%;
+    width:20%;
+    min-width:60px;
+}
+.pendulum
+{
+    width:5%;
+    min-width:60px;
 }
