@@ -88,7 +88,7 @@ html,body{
     overflow-x:auto;
     text-align:center;
     padding-top:1%;
-    padding-bottom:1%
+    padding-bottom:1%;
 }
 .lookup
 {
@@ -99,6 +99,7 @@ html,body{
     margin-bottom:5%;
     width:80%;
     height:80%;
+    background-color:#D9D9D9;
 }
 .lookupimage
 {
@@ -149,4 +150,67 @@ html,body{
 {
     width:5%;
     min-width:60px;
+}
+.lookupcontent
+{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x:auto;
+    text-align:center;
+    padding-top:1%;
+    padding-bottom:1%;
+    box-sizing: border-box;
+}
+.lookupname
+{
+    height:10%;
+    border-bottom-style: solid;
+}
+.lookuplevel
+{
+    width:50%;
+    height:10%;
+    border-right-style: solid;
+    border-bottom-style:solid;
+    float:left;
+}
+.lookupatribute
+{
+    width:50%;
+    height:10%;
+    float:right;
+    border-bottom-style:solid;
+}
+.lookupattack
+{
+    width:33.3%;
+    height:10%;
+    float:left;
+    border-bottom-style:solid;
+    border-right-style:solid;
+}
+.lookuptype
+{
+    width:33.3%;
+    height:10%;
+    float:left;
+    border-bottom-style:solid;
+}
+.lookupcombined
+{
+    height:10%;
+    width:100%;
+    border-bottom-style: solid;
+}
+.lookupcombinedpendulum
+{
+    height:10%;
+    width:50%;
+    border-bottom-style: solid;
+}
+.lookupdetails
+{
+    height:50%;
+    width:100%;
 }
