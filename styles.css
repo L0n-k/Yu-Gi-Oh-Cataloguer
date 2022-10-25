@@ -90,6 +90,33 @@ html,body{
     padding-top:1%;
     padding-bottom:1%
 }
+.lookup
+{
+    border-style:solid;
+    margin-left:10%;
+    margin-right:10%;
+    margin-top:5%;
+    margin-bottom:5%;
+    width:80%;
+    height:80%;
+}
+.lookupimage
+{
+    display: flex;
+    height:100%;
+    width:30%;
+    float:left;
+    vertical-align:auto;
+    justify-content: center;
+    align-items: center;
+}
+.databox
+{
+    width:auto;
+    border-left-style:solid;
+    height:100%;
+    overflow: hidden;
+}
 .name{
     width:30%;
     min-width: 100px;
