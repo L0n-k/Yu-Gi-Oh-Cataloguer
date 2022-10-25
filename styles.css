@@ -56,6 +56,7 @@ html,body{
     width:90%;
     float:right;
     overflow-y:auto;
+    overflow-x:auto;
     max-width:auto;
 }
 .tablerow
@@ -67,6 +68,38 @@ html,body{
 }
 .tableheader
 {
+    display:flex;
     height:100%;
     border-right-style: solid;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align:center;
+}
+.tablecontent
+{
+    display:flex;
+    height:100%;
+    border-right-style: solid;
+    align-items: center;
+    justify-content: center;
+    overflow-x:auto;
+    flex-wrap:nowrap;
+    text-align:center;
+}
+.name{
+    width:30%;
+    min-width: 100px;
+}
+.atribute{
+    width:10%;
+}
+.level{
+    width:10%;
+}
+.type{
+    width:10%;
+}
+.atk{
+    width:10%;
 }
