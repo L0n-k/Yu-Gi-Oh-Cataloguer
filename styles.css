@@ -127,7 +127,7 @@ html,body{
     width:10%;
     min-width: 60px;
 }
-.atribute{
+.attribute{
     width:10%;
     min-width:60px;
 }
@@ -145,8 +145,12 @@ html,body{
     min-width:60px;   
 }
 .atk{
-    width:10%;
-    min-width:60px;
+    width:5%;
+    min-width:30px;
+}
+.def{
+    width:5%;
+    min-width:30px;
 }
 .count{
     width:5%;
