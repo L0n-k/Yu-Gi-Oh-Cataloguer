@@ -1,21 +1,29 @@
 const endpoint = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?';
+//navbar
 let body = document.getElementById('body');
 let navbar = document.createElement('div');
 navbar.className='navbar';
-let navitem1 = document.createElement('div');
-navitem1.className = 'navitem borderstyle';
-let navitem2 = document.createElement('div');
-navitem2.className = 'navitem borderstyle';
-let navitem3 = document.createElement('div');
-navitem3.className = 'navitem borderstyle';
-let navitem4 = document.createElement('div');
-navitem4.className = 'navitem borderstyle';
-navbar.appendChild(navitem1);
-navbar.appendChild(navitem2);
-navbar.appendChild(navitem3);
-navbar.appendChild(navitem4);
-//body.appendChild(navbar);
+//navbar
+let y=0;
+let navdiv;
+let navitem;
+let navcontent=['Catalouge','Card-lookup','Card-lookup alt.','Account'];
+let navlink=['./index.html','./card_lookup.html','./card_lookup_alt_example.html',''];
+while(y<=navcontent.length-1)
+{
+    navdiv=document.createElement('div');
+    navdiv.className='navitem borderstyle';
+    navitem=document.createElement('a');
+    navitem.href=(''+navlink[y]);
+    navitem.textContent=(''+navcontent[y]);
+    navdiv.appendChild(navitem);
+    navbar.appendChild(navdiv);
+    y++;
+}
+body.appendChild(navbar);
+console.log(navbar);
 
+//dynamic element
 let cardTable = document.getElementById('table');
 let tablerow = document.createElement('div');
 tablerow.className='tablerow borderstyle';
@@ -34,6 +42,38 @@ while(x<=appendClass.length-1)
     x++;
 }
 cardTable.appendChild(tablerow);
+
+//deprecated code
+/*let navitem1 = document.createElement('div');
+let navcontent1 = document.createElement('a');
+navcontent1.href="./index.html";
+navcontent1.textContent='Catalouge';
+navitem1.appendChild(navcontent1);
+navitem1.className = 'navitem borderstyle';
+let navitem2 = document.createElement('div');
+let navcontent2 = document.createElement('a');
+navcontent2.href="./card_lookup.html";
+navcontent2.textContent='Card-lookup';
+navitem2.appendChild(navcontent2);
+navitem2.className = 'navitem borderstyle';
+let navitem3 = document.createElement('div');
+let navcontent3 = document.createElement('a');
+navcontent3.href="./card_lookup_alt_example.html";
+navcontent3.textContent='Card-lookup alt.';
+navitem3.appendChild(navcontent3);
+navitem3.className = 'navitem borderstyle';
+let navitem4 = document.createElement('div');
+let navcontent4 = document.createElement('a');
+navcontent4.textContent='Account';
+navitem4.appendChild(navcontent4);
+navitem4.className = 'navitem borderstyle';
+navbar.appendChild(navitem1);
+navbar.appendChild(navitem2);
+navbar.appendChild(navitem3);
+navbar.appendChild(navitem4);
+console.log(navbar);
+body.appendChild(navbar);*/
+
 /*let cardName = document.createElement('div');
 cardName.className = 'tablecontent borderstyle name';
 cardName.textContent = 'Cloudcastle';
