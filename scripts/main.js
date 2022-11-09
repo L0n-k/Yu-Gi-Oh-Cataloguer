@@ -23,25 +23,15 @@ while(y<=navcontent.length-1)
 body.appendChild(navbar);
 console.log(navbar);
 
-//dynamic element
+//dynamic table row
 let cardTable = document.getElementById('table');
 let tablerow;
 let x=0;
 let appendDiv;
 let appendClass = ['name','cardtype','attribute','level','pendulum','type','tuner','atk','def','count','notes'];
 let divText = ['Cloudcastle','Synchro','WIND','Level 9','/','Machine','X','0','3000','1','test'];
-/*while(x<=appendClass.length-1)
-{
-    appendDiv = document.createElement('div');
-    appendDiv.className=('tablecontent borderstyle '+appendClass[x]);
-    appendDiv.textContent=(''+divText[x]);
-    tablerow.appendChild(appendDiv);
-    console.log(appendDiv);
-    console.log(''+x);
-    x++;
-}*/
 
-function addrow(appendClass, divText)
+function addRow(appendClass, divText)
 {
     x=0;
     tablerow = document.createElement('div');
@@ -58,10 +48,13 @@ function addrow(appendClass, divText)
     }
     cardTable.appendChild(tablerow);
 }
-addrow(appendClass,divText);
-addrow(appendClass,divText);
-addrow(appendClass,divText);
-addrow(appendClass,divText);
+addRow(appendClass,divText);
+divText = ['Live☆Twin Lil-la','Effect Monster','DARK','Level 2','/','Cyberse','X','500','0','4','test'];
+addRow(appendClass,divText);
+divText = ['Mekk-Knight Crusadia Avramax','Link Monster','LIGHT','Link 4','/','Cyberse','X','3000','/','1','test'];
+addRow(appendClass,divText);
+divText = ['Endymion, the Mighty Master of Magic','Pendulum Monster','DARK','Level 7','8','Spellcaster','X','2800','1700','0','test'];
+addRow(appendClass,divText);
 
 //cardTable.appendChild(tablerow);
 
@@ -147,3 +140,13 @@ tablerow.appendChild(cardNotes);
 cardNotes.textContent = 'Test';
 */
 //cardTable.appendChild(tablerow);
+/*while(x<=appendClass.length-1)
+{
+    appendDiv = document.createElement('div');
+    appendDiv.className=('tablecontent borderstyle '+appendClass[x]);
+    appendDiv.textContent=(''+divText[x]);
+    tablerow.appendChild(appendDiv);
+    console.log(appendDiv);
+    console.log(''+x);
+    x++;
+}*/
