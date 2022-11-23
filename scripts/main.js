@@ -46,6 +46,12 @@ function addRow(appendClass, divText)
     }
     cardTable.appendChild(tablerow);
 }
+function addrowField(appendClass)
+{
+    let inputField=document.getElementById('search').value.split(',');
+    console.log(+inputField);
+    addRow(appendClass, inputfield);
+}
 divText = ['Cloudcastle','Synchro','WIND','Level 9','/','Machine','X','0','3000','1','test'];
 addRow(appendClass,divText);
 divText = ['Live☆Twin Lil-la','Effect Monster','DARK','Level 2','/','Cyberse','X','500','0','4','test'];
