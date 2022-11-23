@@ -3,7 +3,6 @@ const endpoint = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?';
 let body = document.getElementById('body');
 let navbar = document.createElement('div');
 navbar.className='navbar';
-//navbar
 let y=0;
 let navdiv;
 let navitem;
@@ -26,11 +25,10 @@ console.log(navbar);
 //dynamic table row
 let cardTable = document.getElementById('table');
 let tablerow;
-let x=0;
+let x;
 let appendDiv;
 let appendClass = ['name','cardtype','attribute','level','pendulum','type','tuner','atk','def','count','notes'];
-let divText = ['Cloudcastle','Synchro','WIND','Level 9','/','Machine','X','0','3000','1','test'];
-
+let divText;
 function addRow(appendClass, divText)
 {
     x=0;
@@ -48,6 +46,7 @@ function addRow(appendClass, divText)
     }
     cardTable.appendChild(tablerow);
 }
+divText = ['Cloudcastle','Synchro','WIND','Level 9','/','Machine','X','0','3000','1','test'];
 addRow(appendClass,divText);
 divText = ['Live☆Twin Lil-la','Effect Monster','DARK','Level 2','/','Cyberse','X','500','0','4','test'];
 addRow(appendClass,divText);
