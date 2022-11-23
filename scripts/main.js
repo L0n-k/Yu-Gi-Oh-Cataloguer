@@ -58,6 +58,25 @@ function addrow(appendClass, divText)
     }
     cardTable.appendChild(tablerow);
 }
+function addrowField(appendClass)
+{
+    let inputField=document.getElementById('search').value.split(',');
+    console.log(+inputField);
+    x=0;
+    tablerow = document.createElement('div');
+    tablerow.className='tablerow borderstyle';
+    while(x<=appendClass.length-1)
+    {
+        appendDiv = document.createElement('div');
+        appendDiv.className=('tablecontent borderstyle '+appendClass[x]);
+        appendDiv.textContent=(''+inputField[x]);
+        tablerow.appendChild(appendDiv);
+        //console.log(appendDiv);
+        //console.log(''+x);
+        x++;
+    }
+    cardTable.appendChild(tablerow);
+}
 addrow(appendClass,divText);
 addrow(appendClass,divText);
 addrow(appendClass,divText);
