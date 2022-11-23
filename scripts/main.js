@@ -48,6 +48,25 @@ function addRow(appendClass, divText)
     }
     cardTable.appendChild(tablerow);
 }
+function addrowField(appendClass)
+{
+    let inputField=document.getElementById('search').value.split(',');
+    console.log(+inputField);
+    x=0;
+    tablerow = document.createElement('div');
+    tablerow.className='tablerow borderstyle';
+    while(x<=appendClass.length-1)
+    {
+        appendDiv = document.createElement('div');
+        appendDiv.className=('tablecontent borderstyle '+appendClass[x]);
+        appendDiv.textContent=(''+inputField[x]);
+        tablerow.appendChild(appendDiv);
+        //console.log(appendDiv);
+        //console.log(''+x);
+        x++;
+    }
+    cardTable.appendChild(tablerow);
+}
 addRow(appendClass,divText);
 divText = ['Live☆Twin Lil-la','Effect Monster','DARK','Level 2','/','Cyberse','X','500','0','4','test'];
 addRow(appendClass,divText);
