@@ -50,7 +50,7 @@ function addrowField(appendClass)
 {
     let inputField=document.getElementById('search').value.split(',');
     console.log(+inputField);
-    addRow(appendClass, inputfield);
+    addRow(appendClass, inputField);
 }
 divText = ['Cloudcastle','Synchro','WIND','Level 9','/','Machine','X','0','3000','1','test'];
 addRow(appendClass,divText);
