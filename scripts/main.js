@@ -8,6 +8,7 @@ let navdiv;
 let navitem;
 let navcontent=['Catalouge','Card-lookup','Card-lookup alt.','Account'];
 let navlink=['./index.html','./card_lookup.html','./card_lookup_alt_example.html',''];
+let length = localStorage.lenght;
 while(y<=navcontent.length-1)
 {
     navdiv=document.createElement('div');
@@ -51,15 +52,17 @@ function addrowField(appendClass)
     let inputField=document.getElementById('search').value.split(',');
     console.log(+inputField);
     addRow(appendClass, inputField);
+    if(localStorage.length!=null)
+    localStorage.setItem(inputField[0],inputField);
 }
-divText = ['Cloudcastle','Synchro','WIND','Level 9','/','Machine','X','0','3000','1','test'];
+/*divText = ['Cloudcastle','Synchro','WIND','Level 9','/','Machine','X','0','3000','1','test'];
 addRow(appendClass,divText);
 divText = ['Live☆Twin Lil-la','Effect Monster','DARK','Level 2','/','Cyberse','X','500','0','4','test'];
 addRow(appendClass,divText);
 divText = ['Mekk-Knight Crusadia Avramax','Link Monster','LIGHT','Link 4','/','Cyberse','X','3000','/','1','test'];
 addRow(appendClass,divText);
 divText = ['Endymion, the Mighty Master of Magic','Pendulum Monster','DARK','Level 7','8','Spellcaster','X','2800','1700','0','test'];
-addRow(appendClass,divText);
+addRow(appendClass,divText);*/
 
 //cardTable.appendChild(tablerow);
 
