@@ -9,10 +9,11 @@
         <title>Yu-Gi-Oh! Catalouger</title>
         <script src="./scripts/main.js" defer></script>
     </head>
-    <body id="body">
+    <body id="body" onload="loadSaved()">
         <div class="header borderstyle">
             <input type="text" id="search" name="search" class="searchbar">
-            <input type="button" class="search" onclick ="addrowField(appendClass);">
+            <input type="button" class="search" onclick ="addrowField(appendClass);" value="+">
+            <input type="button" class="search" onclick ="deleteRow()" value="-">
         </div>
         <!--<div class="navbar">
             <div class="navitem borderstyle">

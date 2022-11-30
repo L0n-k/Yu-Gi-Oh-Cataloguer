@@ -8,7 +8,7 @@ let navdiv;
 let navitem;
 let navcontent=['Catalouge','Card-lookup','Card-lookup alt.','Account'];
 let navlink=['./index.html','./card_lookup.html','./card_lookup_alt_example.html',''];
-let length = localStorage.lenght;
+let length = localStorage.length;
 while(y<=navcontent.length-1)
 {
     navdiv=document.createElement('div');
@@ -32,28 +32,44 @@ let appendClass = ['name','cardtype','attribute','level','pendulum','type','tune
 let divText;
 function addRow(appendClass, divText)
 {
-    x=0;
+    //x=0;
     tablerow = document.createElement('div');
     tablerow.className='tablerow borderstyle';
-    while(x<=appendClass.length-1)
+    for(x=0;x<appendClass.length;x++)
     {
         appendDiv = document.createElement('div');
         appendDiv.className=('tablecontent borderstyle '+appendClass[x]);
         appendDiv.textContent=(''+divText[x]);
         tablerow.appendChild(appendDiv);
+        //tablerow.id=""+(length+1);
         //console.log(appendDiv);
         //console.log(''+x);
-        x++;
     }
     cardTable.appendChild(tablerow);
 }
 function addrowField(appendClass)
 {
     let inputField=document.getElementById('search').value.split(',');
-    console.log(+inputField);
+    //console.log(+inputField);
     addRow(appendClass, inputField);
-    if(localStorage.length!=null)
-    localStorage.setItem(inputField[0],inputField);
+    if(localStorage.length!=0)
+    {localStorage.setItem(length+1,inputField);}
+    else
+    {localStorage.setItem(1,inputField)}
+    length++;
+}
+function loadSaved()
+{
+    for(i=1;i<=localStorage.length;i++)
+    {
+        addRow(appendClass, localStorage.getItem(i).split(','));
+    }
+}
+function deleteRow()
+{
+    cardTable.removeChild(cardTable.lastChild);
+    localStorage.removeItem(length);
+    length--;
 }
 /*divText = ['Cloudcastle','Synchro','WIND','Level 9','/','Machine','X','0','3000','1','test'];
 addRow(appendClass,divText);
