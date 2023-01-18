@@ -20,6 +20,7 @@ async function insertCard(card)
         // Connect to the MongoDB cluster
         await client.connect();
         // Make the appropriate DB calls
+        card.index=await client.db('cards').collection('cardlist').countDocuments();
         var result = await client.db('cards').collection('cardlist').insertOne(card);
 
     } catch (e) 
@@ -50,6 +51,25 @@ async function getCards()
     }
     return result;
 }
+async function deleteCard()
+{
+    try 
+    {
+        // Connect to the MongoDB cluster
+        await client.connect();
+        // Make the appropriate DB calls
+        var result = await client.db('cards').collection('cardlist').countDocuments();
+        var deletion = client.db('cards').collection('').drop({index:result-1});
+        //var output = result.toArray();
+    } catch (e) 
+    {
+        console.error(e);
+    }
+    finally
+    {
+        client.close();
+    }
+}
 async function listDatabases(client)
 {
     databasesList = await client.db().admin().listDatabases();
@@ -60,10 +80,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(parser.json())
 app.post('/posts', function requestHandler(req, res) 
 {
+    
+    if(req=='delete')
+    {
+        deleteCard();
+    }
+    else
+    {
     card=req.body;
     console.log(req.body);
     res.end('received');
     insertCard(card);
+    }
 });
 app.use(parser.json())
 app.get('/gets', async function requestHandler(req, res) 

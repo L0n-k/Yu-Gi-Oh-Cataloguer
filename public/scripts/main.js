@@ -160,6 +160,31 @@ function sendCard(card)
         console.log(error);
     });
 }
+function deleteCard()
+{
+    fetch('/posts',
+    {
+        method:'POST',
+        headers: {
+            'Accept': 'text/plaintext',
+            'Content-Type': 'text/plaintext'
+          },
+        body:'delete',
+    })
+    .then((result) => 
+    {
+        if (result.status != 200) { throw new Error("Bad Server Response"); }
+        return result.text();
+    })
+    .then((response) =>
+    {
+        console.log(response);
+    })
+    .catch((error)=>
+    {
+        console.log(error);
+    });
+}
 /*
 function insertCard(card)
 {
