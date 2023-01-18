@@ -82,12 +82,16 @@ function addrowField(appendClass)
     {localStorage.setItem(1,inputField)}
     length++;
 }
-function loadSaved()
+async function loadSaved()
 {
-    fetch('/gets')
-    for(i=1;i<=localStorage.length;i++)
+    let data = await fetch('/gets');
+    data =await data.json();
+    console.log(data);
+    //console.log(await data.length);
+    for(i=0;i<data.length;i++)
     {
-        addRow(appendClass, localStorage.getItem(i).split(','));
+        console.log(data[i]);
+        addRow(data[i]);
     }
 }
 function deleteRow()

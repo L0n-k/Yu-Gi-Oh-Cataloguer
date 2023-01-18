@@ -8,6 +8,7 @@ var dburl = "mongodb://127.0.0.1:27017/";
 var app = express();
 var mongoClient = new mongodb.MongoClient(dburl);
 var path = require('path');
+const { response } = require('express');
 let db='cards';
 var client = new mongodb.MongoClient(dburl);
 //var express = require('express');
@@ -37,8 +38,8 @@ async function getCards()
         // Connect to the MongoDB cluster
         await client.connect();
         // Make the appropriate DB calls
-        var result = await client.db('cards').collection('cardlist').find();
-
+        var result = await client.db('cards').collection('cardlist').find({}).toArray();
+        //var output = result.toArray();
     } catch (e) 
     {
         console.error(e);
@@ -46,7 +47,8 @@ async function getCards()
     finally
     {
         client.close();
-    }  
+    }
+    return result;
 }
 async function listDatabases(client)
 {
@@ -63,12 +65,13 @@ app.post('/posts', function requestHandler(req, res)
     res.end('received');
     insertCard(card);
 });
-app.get('/gets', function requestHandler(req, res) 
+app.use(parser.json())
+app.get('/gets', async function requestHandler(req, res) 
 {
     console.log('request received');
-    cards=getCards();
+    cards=await getCards();
     console.log(cards);
-    res.write(cards);
+    res.send(cards);
 });
 /*var server = http.createServer(function(request,response) 
     {
