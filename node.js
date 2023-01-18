@@ -8,22 +8,68 @@ var dburl = "mongodb://127.0.0.1:27017/";
 var app = express();
 var mongoClient = new mongodb.MongoClient(dburl);
 var path = require('path');
+let db='cards';
+var client = new mongodb.MongoClient(dburl);
 //var express = require('express');
 //var app=express();
+async function insertCard(card)
+{
+    try 
+    {
+        // Connect to the MongoDB cluster
+        await client.connect();
+        // Make the appropriate DB calls
+        var result = await client.db('cards').collection('cardlist').insertOne(card);
+
+    } catch (e) 
+    {
+        console.error(e);
+    }
+    finally
+    {
+        client.close();
+    }
+}
+async function getCards()
+{
+    try 
+    {
+        // Connect to the MongoDB cluster
+        await client.connect();
+        // Make the appropriate DB calls
+        var result = await client.db('cards').collection('cardlist').find();
+
+    } catch (e) 
+    {
+        console.error(e);
+    }
+    finally
+    {
+        client.close();
+    }  
+}
+async function listDatabases(client)
+{
+    databasesList = await client.db().admin().listDatabases();
+    console.log("Databases:");
+    databasesList.databases.forEach(db => console.log(` - ${db.name}`));
+};
 app.use(express.static(path.join(__dirname, 'public')));
-/*async function startServer() {
-    // connect to database
-    await mongoClient.connect();
-    // listen for requests
-    server.listen(port, hostname, () => {
-      console.log(`Server running at http://${hostname}:${port}/`);
-    });
-  }*/
-app.use(parser.json({extended : true}));
-app.post('/posts', function requestHandler(req, res) {
+app.use(parser.json())
+app.post('/posts', function requestHandler(req, res) 
+{
+    card=req.body;
     console.log(req.body);
     res.end('received');
-  });
+    insertCard(card);
+});
+app.get('/gets', function requestHandler(req, res) 
+{
+    console.log('request received');
+    cards=getCards();
+    console.log(cards);
+    res.write(cards);
+});
 /*var server = http.createServer(function(request,response) 
     {
         var path=url.parse(request.url).pathname;

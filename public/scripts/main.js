@@ -84,6 +84,7 @@ function addrowField(appendClass)
 }
 function loadSaved()
 {
+    fetch('/gets')
     for(i=1;i<=localStorage.length;i++)
     {
         addRow(appendClass, localStorage.getItem(i).split(','));
@@ -114,8 +115,9 @@ function createJSON()
     };
     console.log(JSON.stringify(card));
     console.log(card);
+    let cardstring = JSON.stringify(card);
     addRow(card);
-    sendCard(card);
+    sendCard(cardstring);
     /*console.log(name);
     console.log(cardtype);
     console.log(attribute);
@@ -130,11 +132,15 @@ function createJSON()
 }
 function sendCard(card)
 {
+    console.log('sent JSON: ' +card),
     fetch('/posts',
     {
         method:'POST',
-        body:JSON.stringify(card),
-        headers:{'content-type':'text/JSON'},
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+        body:card,
     })
     .then((result) => 
     {
