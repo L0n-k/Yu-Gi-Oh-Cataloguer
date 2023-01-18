@@ -1,3 +1,4 @@
+
 const endpoint = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?';
 //navbar
 let body = document.getElementById('body');
@@ -30,11 +31,27 @@ let x;
 let appendDiv;
 let appendClass = ['name','cardtype','attribute','level','pendulum','type','tuner','atk','def','count','notes'];
 let divText;
-function addRow(appendClass, divText)
+function addRow(card)
 {
-    //x=0;
     tablerow = document.createElement('div');
     tablerow.className='tablerow borderstyle';
+    tablerow.appendChild(newDiv([0],card.name));
+    tablerow.appendChild(newDiv([1],card.cardtype));
+    tablerow.appendChild(newDiv([2],card.attribute));
+    tablerow.appendChild(newDiv([3],card.level));
+    tablerow.appendChild(newDiv([4],card.scale));
+    tablerow.appendChild(newDiv([5],card.type));
+    if(card.tuner==true)
+    {tablerow.appendChild(newDiv([6],'O'));}
+    else
+    {{tablerow.appendChild(newDiv([6],'X'));}}
+    tablerow.appendChild(newDiv([7],card.atk));
+    tablerow.appendChild(newDiv([8],card.def));
+    tablerow.appendChild(newDiv([9],card.count));
+    tablerow.appendChild(newDiv([10],card.notes));
+    cardTable.appendChild(tablerow);
+    //x=0;
+    /* old code
     for(x=0;x<appendClass.length;x++)
     {
         appendDiv = document.createElement('div');
@@ -45,7 +62,14 @@ function addRow(appendClass, divText)
         //console.log(appendDiv);
         //console.log(''+x);
     }
-    cardTable.appendChild(tablerow);
+    */
+}
+function newDiv(divnumber,divcontent)
+{
+    appendDiv = document.createElement('Div');
+    appendDiv.className = ('tablecontent borderstyle '+appendClass[divnumber]);
+    appendDiv.textContent=(''+divcontent);
+    return appendDiv;
 }
 function addrowField(appendClass)
 {
@@ -71,6 +95,78 @@ function deleteRow()
     localStorage.removeItem(length);
     length--;
 }
+function createJSON()
+{
+    console.log();
+    let card;
+    card = 
+    {
+            name:document.getElementById('nameinput').value,
+            cardtype:document.getElementById('cardtypeinput').value,
+            attribute:document.getElementById('attributeinput').value,
+            level:document.getElementById('levelinput').value,
+            scale:document.getElementById('scaleinput').value,
+            type:document.getElementById('typeinput').value,
+            tuner:document.getElementById('tunerinput').checked,
+            atk:document.getElementById('atkinput').value,
+            def:document.getElementById('definput').value,
+            count:document.getElementById('amountinput').value,
+            notes:document.getElementById('noteinput').value
+    };
+    console.log(JSON.stringify(card));
+    console.log(card);
+    addRow(card);
+    sendCard(card);
+    /*console.log(name);
+    console.log(cardtype);
+    console.log(attribute);
+    console.log(level);
+    console.log(scale);
+    console.log(type);
+    console.log(tuner);
+    console.log(atk);
+    console.log(def)
+    console.log(count);
+    console.log(notes);*/
+}
+function sendCard(card)
+{
+    fetch('127.0.0.1:2501',
+    {
+        method:'POST',
+        body:JSON.stringify(card),
+        headers:{'content-type':'text/plain'},
+    })
+    .then((result) => 
+    {
+        if (result.status != 200) { throw new Error("Bad Server Response"); }
+        return result.text();
+    })
+    .then((response) =>
+    {
+        console.log(response);
+    })
+    .catch((error)=>
+    {
+        console.log(error);
+    });
+}
+/*
+function insertCard(card)
+{
+    MongoClient.connect(url, function(err,db)
+    {
+        if(err) throw err;
+        var dbo = db.db('cards');
+        dbo.collection('cardlist').insertOne(card,function(err,response)
+        {
+            if(err) throw err;
+            console.log('card inserted!');
+            db.close;
+        });
+    });
+}
+*/
 /*divText = ['Cloudcastle','Synchro','WIND','Level 9','/','Machine','X','0','3000','1','test'];
 addRow(appendClass,divText);
 divText = ['Live☆Twin Lil-la','Effect Monster','DARK','Level 2','/','Cyberse','X','500','0','4','test'];

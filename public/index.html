@@ -12,7 +12,7 @@
     <body id="body" onload="loadSaved()">
         <div class="header borderstyle">
             <input type="text" id="search" name="search" class="searchbar">
-            <input type="button" class="search" onclick ="addrowField(appendClass);" value="+">
+            <input type="button" class="search" onclick ="createJSON();" value="+">
             <input type="button" class="search" onclick ="deleteRow()" value="-">
         </div>
         <!--<div class="navbar">
@@ -42,6 +42,61 @@
                 <div class="tableheader borderstyle def">DEF</div>
                 <div class="tableheader borderstyle count">Count Total</div>
                 <div class="tableheader borderstyle notes">Notes</div>
+            </div>
+            <div class="tablerow borderstyle"> <!--New Input-->
+                <div class="borderstyle tableheader name"><input type="text" id="nameinput" name="nameinput" class="inlineinput"></div>
+                <div class="borderstyle tableheader cardtype">
+                    <select id="cardtypeinput" class="inlineinput">
+                    <option value="Monster">Monster</option><option value="Spell">Spell</option><option value="Trap">Trap</option>
+                    </select>
+                </div>
+                <div class="tableheader borderstyle attribute">
+                    <select id="attributeinput" class="inlineinput">
+                        <option value="Dark">Dark</option>
+                        <option value="Divine">Divine</option>
+                        <option value="Earth">Earth</option>
+                        <option value="Fire">Fire</option>
+                        <option value="Light">Light</option>
+                        <option value="Water">Water</option>
+                        <option value="Wind">Wind</option>    
+                    </select>
+                </div>
+                <div class="tableheader borderstyle level"><input type="number" id="levelinput" name="levelinput" class="inlineinput"></div>
+                <div class="tableheader borderstyle pendulum"><input type="number" id="scaleinput" name="scaleinput" class="inlineinput"></div>
+                <div class="tableheader borderstyle type">
+                    <select id="typeinput" class="inlineinput">
+                        <option value="Aqua">Aqua</option>
+                        <option value="Beast">Beast</option>
+                        <option value="Beastwarrior">Beast-Warrior</option>
+                        <option value="Creatorgod">Creator God</option>
+                        <option value="Cyberse">Cyberse</option>
+                        <option value="Dinosaur">Dinosaur</option>
+                        <option value="Divinebeast">Divine-Beast</option>    
+                        <option value="Dragon">Dragon</option>
+                        <option value="Fairy">Fairy</option>
+                        <option value="Fiend">Fiend</option>
+                        <option value="Fish">Fish</option>
+                        <option value="Insect">Insect</option>
+                        <option value="Machine">Machine</option>
+                        <option value="Plant">Plant</option>    
+                        <option value="Psychic">Psychic</option>
+                        <option value="Pyro">Pyro</option>
+                        <option value="Reptile">Reptile</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Seaserpent">Sea Serpent</option>
+                        <option value="Spellcaster">Spellcaster</option>
+                        <option value="Thunder">Thunder</option>
+                        <option value="Warrior">Warrior</option>
+                        <option value="Wingedbeast">Winged Beast</option>
+                        <option value="Wyrm">Wyrm</option>
+                        <option value="Zombie">Zombie</option>    
+                    </select>
+                </div>
+                <div class="tableheader borderstyle tuner"><input type="checkbox" id="tunerinput" name="tunerinput" class="inlineinput"></div>
+                <div class="tableheader borderstyle atk"><input type="number" id="atkinput" name="atkinput" class="inlineinput"></div>
+                <div class="tableheader borderstyle def"><input type="number" id="definput" name="definput" class="inlineinput"></div>
+                <div class="tableheader borderstyle count"><input type="number" id="amountinput" name="amountinput" class="inlineinput"></div>
+                <div class="tableheader borderstyle notes"><input type="text" id="noteinput" name="Noteinput" class="inlineinput"></div>
             </div>
             <!-- Static content -->
 <!--            <div class="tablerow borderstyle">
