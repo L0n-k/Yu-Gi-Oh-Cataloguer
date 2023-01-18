@@ -2,23 +2,29 @@ var http = require('http');
 var url = require('url');
 var fs = require('fs');
 var mongodb = require('mongodb');
-//var express = require('express');
+var parser = require('body-parser');
+var express = require('express');
 var dburl = "mongodb://127.0.0.1:27017/";
+var app = express();
 var mongoClient = new mongodb.MongoClient(dburl);
-//var path = require('path');
+var path = require('path');
 //var express = require('express');
 //var app=express();
-//app.use(express.static(path.join(__dirname, 'public')));
-async function startServer() {
+app.use(express.static(path.join(__dirname, 'public')));
+/*async function startServer() {
     // connect to database
     await mongoClient.connect();
     // listen for requests
     server.listen(port, hostname, () => {
       console.log(`Server running at http://${hostname}:${port}/`);
     });
-  }
-  
-var server = http.createServer(function(request,response) 
+  }*/
+app.use(parser.json({extended : true}));
+app.post('/posts', function requestHandler(req, res) {
+    console.log(req.body);
+    res.end('received');
+  });
+/*var server = http.createServer(function(request,response) 
     {
         var path=url.parse(request.url).pathname;
         switch(path)
@@ -27,7 +33,7 @@ var server = http.createServer(function(request,response)
                 fs.readFile('./public/index.html',function(err,data)
                 {
                     if (err) throw err;
-                    response.writeHead(200,{'content-type':'text/html'});
+                    response.writeHead(200,{'content-type':'text/html',"Access-Control-Allow-Origin" : "*"});
                     response.write(data);
                     response.end();
                     console.log('HTML loaded!');
@@ -103,13 +109,20 @@ var server = http.createServer(function(request,response)
                     console.log('HTML loaded!');
                 });
                 break;
-            /*default:
-                response.writeHead(200, {'content-type':'text/plain'});
-                response.write("default case.");
-                response.end();
-                break;*/
+            /*case request.method=='POST'&& '/posts':
+                response.writeHead(200,{"Access-Control-Allow-Origin" : "*"});
+                console.log('received');
+                response.end('received');
+                console.log(request.parse);
+                break;
+            /*case '/posts':
+                console.log('received')
+                response.end('received');
+                console.log(request);
+                break;
         }
     }
-)
-server.listen(2501);
+)*/
+//server.listen(2501);
+app.listen(2501);
 console.log('listening on port 2501');

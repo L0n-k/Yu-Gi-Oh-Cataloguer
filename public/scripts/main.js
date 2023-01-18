@@ -97,7 +97,6 @@ function deleteRow()
 }
 function createJSON()
 {
-    console.log();
     let card;
     card = 
     {
@@ -131,11 +130,11 @@ function createJSON()
 }
 function sendCard(card)
 {
-    fetch('127.0.0.1:2501',
+    fetch('/posts',
     {
         method:'POST',
         body:JSON.stringify(card),
-        headers:{'content-type':'text/plain'},
+        headers:{'content-type':'text/JSON'},
     })
     .then((result) => 
     {
